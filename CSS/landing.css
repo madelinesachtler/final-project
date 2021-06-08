@@ -1,0 +1,55 @@
+.style {
+  background-image: url(https://geektogeekmedia.com/wp-content/uploads/2021/01/aupcbanner.png.webp);
+  background-size: 75%;
+  background-repeat:unset;
+  opacity: 100%;
+}
+
+.space {
+  background-image: url(https://i.redd.it/2obw9yylddr51.jpg);
+  background-size: 75%;
+  background-repeat:unset;
+  opacity: 90%;
+}
+
+nav {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .style1 {
+    height: 500px;
+  }
+  
+  p {
+    text-align: left;
+  }
+  
+  .container {
+    height: 200px;
+  }
+  
+  .opac {
+    opacity: 90%;
+  }
+
+  .card {
+    opacity: 90%;
+  }
+  
+  .goob {
+    font-family: 'Among Us', cursive;
+  }
+
+  .container-fluid {
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+  }
+
+  .subhead {
+    max-height: 50%;
+  }
+
+  .sizer {
+    max-height: 125px;
+  }
+
+  

@@ -1,0 +1,51 @@
+.style {
+  background-image:url("../images/blue.jpg");
+  background-size: 100%;
+  background-repeat:unset;
+  opacity: 100%;
+}
+
+.space {
+  background-image: url(https://i.redd.it/2obw9yylddr51.jpg);
+  background-size: 75%;
+  background-repeat:unset;
+  opacity: 90%;
+}
+
+nav {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .style2 {
+    height: 1200px;
+  }
+  
+  p {
+    text-align: left;
+  }
+  
+  .container {
+    height: 200px;
+  }
+  
+
+
+  .card {
+    opacity: 90%;
+  }
+
+  style3 {
+    height: 2000px;
+  }
+
+  .rounding {
+    border-radius: 5px;
+  }
+
+  .container-fluid {
+    box-shadow: 10px 10px 10px rgb(2, 2, 59);
+  }
+
+  .goob {
+    font-family: 'Among Us', cursive;
+  }
