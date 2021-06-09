@@ -1,16 +1,18 @@
 .style {
-  background-image:url("../images/red.jpg");
-  background-size: 15%;
-  background-repeat:unset;
+  background-image:url("../images/green.jpg");
+  background-size: 50%;
+  background-repeat:space;
   opacity: 100%;
   background-position: center;
 }
 
 .space {
-  background-image: url(../images/space.jpg);
-  background-size: 75%;
+  background-image: url(../images/findings.jpg);
+  background-size: 90%;
   background-repeat:unset;
   opacity: 90%;
+  height: 1500px;
+  background-position: center;
 }
 
 nav {
@@ -32,7 +34,7 @@ nav {
 
 
   .card {
-    opacity: 90%;
+    opacity: 80%;
   }
 
   style3 {
@@ -44,7 +46,7 @@ nav {
   }
 
   .container-fluid {
-    box-shadow: 10px 10px 10px rgb(136, 2, 2);
+    box-shadow: 10px 10px 10px rgb(7, 136, 2);
   }
 
   .goob {
@@ -52,12 +54,15 @@ nav {
   }
 
   .my-custom-scrollbar {
-    height: 800px;
+    height: 600px;
     overflow: auto;
     overflow-x: scroll;
   }
 
-
+  html {
+    overflow-y: scroll;
+  
+  }
 
   .sizer {
     max-height: 100px;
@@ -67,4 +72,3 @@ nav {
     max-height: 125px;
     transform: rotate(125deg);
   }
-

@@ -34,9 +34,6 @@ nav {
     opacity: 90%;
   }
 
-  style3 {
-    height: 2000px;
-  }
 
   .rounding {
     border-radius: 5px;
@@ -48,4 +45,17 @@ nav {
 
   .goob {
     font-family: 'Among Us', cursive;
+  }
+
+  p {
+    font-size: 20px;
+    font-family: monospace;
+  }
+
+
+
+  .my-custom-scrollbar {
+    height: 1010px;
+    overflow: auto;
+    overflow-x: scroll;
   }

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset = "UTF-8"> 
+        <title>Weather and Latitude</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+       <link rel = "stylesheet" type="text/css" href = "../CSS/data.css">
+       <link href="http://fonts.cdnfonts.com/css/among-us" rel="stylesheet">
+    </head>
+
+
+    <body>
+      <div class="d-flex container-fluid style align-items-center text-center justify-content-center sticky-top goob">
+        <div class="row p-2 justify-content-between">
+          <ul class="d-flex nav nav-pills nav-fill justify-content-between align-items-center col-12">
+            <li class="nav-item col-2">
+              <a class="nav-link bg-primary text-white" aria-current="page" href="visuals.html">Visualizations</a>
+            </li>
+            <li class="nav-item col-2">
+              <a class="nav-link bg-danger text-white" aria-current="page" href="ml.html">ML</a>
+            </li>
+            <li class="nav-item p-0 col-2">
+              <a class="nav-link bg-dark text-white" aria-current="page" href="landing.html">
+                <img src="../images/title.png" class="img-fluid" alt="...">
+              </a>
+            </li>
+            <li class="nav-item col-2">
+              <a class="nav-link bg-warning text-dark" aria-current="page" href="data.html">Data </a>
+            </li>
+            <li class="nav-item col-2">
+              <a class="nav-link bg-success text-white" aria-current="page" href="findings.html">About  ඞ</a>
+            </li>
+          </ul>
+          </div>
+        </div>
+
+
+        <div class="container-fluid p-2 space">
+          <div class="row p-3 justify-content-center">
+            <div class="col-2 btn btn-dark">
+              <a href="data.html"><h3>See Dataframe</h3></a>
+            </div>
+          </div>
+          <div class="row p-3 justify-content-center">
+            <div class="col-10">
+              <div class="card">
+                <div class="card-header text-center bg-dark text-light">
+                  <H1>Documentation</H1>
+                </div>
+                <div class="card-body">
+                  <h3 class="code-line" data-line-start=0 data-line-end=1><a id="Field_Definitions_0"></a>Field Definitions</h3>
+                  <ul>
+                  <li class="has-line-data" data-line-start="1" data-line-end="4"><strong>Game Completed Date</strong> - Text string
+                  <ul>
+                  <li class="has-line-data" data-line-start="2" data-line-end="3">Format: MM/DD/YYYY at H:MM:SS #m EST</li>
+                  <li class="has-line-data" data-line-start="3" data-line-end="4">This provides the exact time in EST that the game being played has finished, Win or Loss</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="4" data-line-end="7"><strong>Team</strong> - Categorical
+                  <ul>
+                  <li class="has-line-data" data-line-start="5" data-line-end="6">Options: Imposter, Crewmate</li>
+                  <li class="has-line-data" data-line-start="6" data-line-end="7">This provides the side or team that the user was a member of during this game which further determines the applicable metrics that we are allowed to track due to the different allowable actions for each team</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="7" data-line-end="10"><strong>Outcome</strong> - Categorical
+                  <ul>
+                  <li class="has-line-data" data-line-start="8" data-line-end="9">Options: Loss, Win</li>
+                  <li class="has-line-data" data-line-start="9" data-line-end="10">This provides the outcome of the game for that user</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="10" data-line-end="14"><strong>Task Completed</strong> - Numeric
+                  <ul>
+                  <li class="has-line-data" data-line-start="11" data-line-end="12">Range: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</li>
+                  <li class="has-line-data" data-line-start="12" data-line-end="13">Only applicable to Crewmates, this describes the number of tasks completed by that user within the game</li>
+                  <li class="has-line-data" data-line-start="13" data-line-end="14">Each game, users are assigned a number of tasks that depend on two factors: the map being played on and the custom settings used</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="14" data-line-end="18"><strong>All Tasks Completed</strong> - Categorical
+                  <ul>
+                  <li class="has-line-data" data-line-start="15" data-line-end="16">Options: No, Yes</li>
+                  <li class="has-line-data" data-line-start="16" data-line-end="17">Dependent on Task Completed and only applicable to Crewmates, this describes if the user has completed all tasks assigned to them</li>
+                  <li class="has-line-data" data-line-start="17" data-line-end="18">The number of tasks necessary to achieve completeness will vary from game to game depending on two factors: the map being played on and the custom settings used</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="18" data-line-end="22"><strong>Murdered</strong> - Categorical
+                  <ul>
+                  <li class="has-line-data" data-line-start="19" data-line-end="20">Options: No, Yes</li>
+                  <li class="has-line-data" data-line-start="20" data-line-end="21">Only applicable to Crewmates, this describes if a user was murdered by a user opponent (Imposter) through the Kill action</li>
+                  <li class="has-line-data" data-line-start="21" data-line-end="22">This field and the Ejected field are mutually exclusive (you cannot be both Murdered and Ejected in the same game)</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="22" data-line-end="29"><strong>Imposter Kills</strong> - Numeric
+                  <ul>
+                  <li class="has-line-data" data-line-start="23" data-line-end="24">Range: [0, 1, 2, 3, 4, 5, 6, 7, 8]</li>
+                  <li class="has-line-data" data-line-start="24" data-line-end="25">Only applicable to Imposters, this describes the number of Crewmates that the user has murdered through the Kill action</li>
+                  <li class="has-line-data" data-line-start="25" data-line-end="29">The maximum number of kills that an Imposter can get in any one game is 8 because:
+                  <ul>
+                  <li class="has-line-data" data-line-start="26" data-line-end="27">The maximum number of Crewmates allowed in any one game is 9</li>
+                  <li class="has-line-data" data-line-start="27" data-line-end="28">The minimum number of Imposters allowed in any one game is 1</li>
+                  <li class="has-line-data" data-line-start="28" data-line-end="29">The game will end in a Win Outcome for the Imposter side if the number of Imposters equals the number of Crewmates</li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="29" data-line-end="32"><strong>Game Length</strong> - Text string
+                  <ul>
+                  <li class="has-line-data" data-line-start="30" data-line-end="31">Format: ##m ##s</li>
+                  <li class="has-line-data" data-line-start="31" data-line-end="32">This describes the length of the game in minutes and seconds in a non-datetime format</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="32" data-line-end="36"><strong>Ejected</strong> - Categorical
+                  <ul>
+                  <li class="has-line-data" data-line-start="33" data-line-end="34">Options: No, Yes</li>
+                  <li class="has-line-data" data-line-start="34" data-line-end="35">This describes if a user was murdered during the Voting process by the other players in the game</li>
+                  <li class="has-line-data" data-line-start="35" data-line-end="36">This field and the Murdered field are mutually exclusive (you cannot be both Murdered and Ejected in the same game)</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="36" data-line-end="42"><strong>Sabotages Fixed</strong> - Numeric
+                  <ul>
+                  <li class="has-line-data" data-line-start="37" data-line-end="38">Typical Range: [0, 1, 2, 3, 4, 5]</li>
+                  <li class="has-line-data" data-line-start="38" data-line-end="39">Only applicable to Crewmates, this field describes the number of Sabotages (actions performed by Imposters) that were resolved by the User</li>
+                  <li class="has-line-data" data-line-start="39" data-line-end="42">There are two major factors to influence the Typical Range:
+                  <ul>
+                  <li class="has-line-data" data-line-start="40" data-line-end="41">There is no maximum number of sabotages that can be fixed but this will be limited to the number of Sabotages initiated and the length of the game itself</li>
+                  <li class="has-line-data" data-line-start="41" data-line-end="42">There are some Sabotages Fixed that can apply to two Users which can inflate this number on maps that these sabotages are more useful</li>
+                  </ul>
+                  </li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="42" data-line-end="46"><strong>Time to complete all tasks</strong> - Text string
+                  <ul>
+                  <li class="has-line-data" data-line-start="43" data-line-end="44">Format: ##m ##s</li>
+                  <li class="has-line-data" data-line-start="44" data-line-end="45">Dependent on All Tasks Completed and only applicable to Crewmates, this describes the time taken to complete all tasks and achieve a Yes for All Tasks Completed</li>
+                  <li class="has-line-data" data-line-start="45" data-line-end="46">Additionally, this field will is strictly less than Game Length</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="46" data-line-end="52"><strong>Rank Change</strong> - Categorical
+                  <ul>
+                  <li class="has-line-data" data-line-start="47" data-line-end="48">Options: -, --, —, +, ++, +++</li>
+                  <li class="has-line-data" data-line-start="48" data-line-end="51">This field is largely vague but can loosely be described as the factor used in the matchmaking process, with:
+                  <ul>
+                  <li class="has-line-data" data-line-start="49" data-line-end="50">-, --, — are attributed to a Loss Outcome</li>
+                  <li class="has-line-data" data-line-start="50" data-line-end="51">+, ++, +++ are attributed to a Win Outcome</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="51" data-line-end="52">Large assumptions must be made to interpret the extent to which a field like ++ differs from +++ so we cannot use this field to make any appropriate conclusions</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="52" data-line-end="58"><strong>Region/Game Code</strong> - Text string
+                  <ul>
+                  <li class="has-line-data" data-line-start="53" data-line-end="54">Format: Region / GMECDE</li>
+                  <li class="has-line-data" data-line-start="54" data-line-end="55">This describes the region the server is in that the game is being played and the 6-character game code for the lobby the game is being played in</li>
+                  <li class="has-line-data" data-line-start="55" data-line-end="56">In most cases, there will be repeat Region/Game Codes as multiple games played in the same lobbies</li>
+                  <li class="has-line-data" data-line-start="56" data-line-end="57">In few cases, we will see multiple Users in the same lobbies playing in the same games</li>
+                  <li class="has-line-data" data-line-start="57" data-line-end="58">Lastly, this does not specify the location of each User as there is frequent Region hopping that wouldn’t logistically be possible if the region specified matched the User location</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="58" data-line-end="63"><strong>User</strong> - Categorical
+                  <ul>
+                  <li class="has-line-data" data-line-start="59" data-line-end="60">Range: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]</li>
+                  <li class="has-line-data" data-line-start="60" data-line-end="61">This is a field that we created for the explicit use in our project and analysis</li>
+                  <li class="has-line-data" data-line-start="61" data-line-end="62">There are 29 Users with varying numbers of games with a maximum of 100 games played</li>
+                  <li class="has-line-data" data-line-start="62" data-line-end="63">We created this field to distinguish which Users correspond to which records in order to account for bias in splitting our data between training and testing groups</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="63" data-line-end="72"><strong>Time_of_Day</strong> - Categorical
+                  <ul>
+                  <li class="has-line-data" data-line-start="64" data-line-end="65">Options: Night, Morning, Afternoon, Evening</li>
+                  <li class="has-line-data" data-line-start="65" data-line-end="66">This is a field that we created for the explicit use in our project and analysis</li>
+                  <li class="has-line-data" data-line-start="66" data-line-end="71">This field was created from time portion in the Game Completed Date field, binned in the following way:
+                  <ul>
+                  <li class="has-line-data" data-line-start="67" data-line-end="68">Night: 12:00AM-5:59AM</li>
+                  <li class="has-line-data" data-line-start="68" data-line-end="69">Morning: 6:00AM-11:59AM</li>
+                  <li class="has-line-data" data-line-start="69" data-line-end="70">Afternoon: 12:00PM – 5:59PM</li>
+                  <li class="has-line-data" data-line-start="70" data-line-end="71">Evening: 6:00PM-11:59PM</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="71" data-line-end="72">We created this field to add another predictive field for Outcome as the time of the game that you’re playing at may affect your ability to perform well in your role</li>
+                  </ul>
+                  </li>
+                  <li class="has-line-data" data-line-start="72" data-line-end="77"><strong>Date</strong> - Datetime
+                  <ul>
+                  <li class="has-line-data" data-line-start="73" data-line-end="74">Format: MM/DD/YYYY</li>
+                  <li class="has-line-data" data-line-start="74" data-line-end="75">This is a field that we created for the explicit use in our project and analysis</li>
+                  <li class="has-line-data" data-line-start="75" data-line-end="76">This field was created from the date portion in the Game Completed Date field</li>
+                  <li class="has-line-data" data-line-start="76" data-line-end="77">We have yet to find an applicable use for this field</li>
+                  </ul>
+                  </li>
+                  </ul>
+                  <h3 class="code-line" data-line-start=77 data-line-end=78><a id="Data_Limitations_77"></a>Data Limitations</h3>
+                  <p class="has-line-data" data-line-start="78" data-line-end="81">There are some limitations with the data that we have encountered that shape the scope of our analysis. The field descriptions were entirely created using the understanding of the game by the members of the project. In particular, the Rank Change field is a field that we do not feel confident in making conclusions with as we cannot define the scope of it’s use and its implications.</p>
+                  <p> We make an assumption that the games are being played in the Eastern Standard Time as a majority of Users play in both NA and Europe servers with a majority of those games being in NA. We imply that the data gathered was in North America with the most likely time zone being Eastern Standard Time as any other time zone would not lead to matchmaking with Europe servers. This is important so we can create the Time_of_Day field under the assumption that Game Completed Date is reflective of the local time.</p>
+                  Our Combined dataset is the result of combining 29 separate datasets for 29 separate Users. We have created a User field to keep track of which records belong to which User. This is so that we can maintain these pods when defining our training and testing groups. This makes it difficult to create evenly portioned training and testing groups for our Crewmate and Imposter analysis. However, we believe that it is more important to avoid bias by not training on records that we will later test on for that same User. We consider this a more explicit bias to be avoided.</p>
+                    
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+
+                
+
+
+
+
+
+
+          
+
+
+
+
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+
+    
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </body>
+   
+    
+</html>

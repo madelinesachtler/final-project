@@ -29,7 +29,7 @@
               <a class="nav-link bg-warning text-dark" aria-current="page" href="data.html">Data </a>
             </li>
             <li class="nav-item col-2">
-              <a class="nav-link bg-success text-white" aria-current="page" href="about.html">About  ඞ</a>
+              <a class="nav-link bg-success text-white" aria-current="page" href="findings.html">About  ඞ</a>
             </li>
           </ul>
           </div>
@@ -61,6 +61,17 @@
 
             <div class="style2 space col-12 p-4">
               <div class="row p-2 justify-content-center">
+                <div class="card col-4 p-0 my-custom-scrollbar">
+                  <div class="card-header p-0 bg-primary text-center text-white">
+                    <h1>Overview</h1>
+                  </div>
+                  <div class="card-body bg-dark text-white col-12 align-items-center justify-content-center">
+                    <p>What we were able to gather from the Machine Learning aspect of this project was that game length and number of tasks completed had a really strong effect on the outcome of the game. We decided to plot these instances against each other in a Jitter Plot, while also tracking the average number of tasks completed. On the y-axis we have the length of the game in seconds, and on the x-axis, we have the sum of imposter kills. The points are color-coded based on whether or not the outcome of the game was a win or a loss for the Crewmates. The left side of the plot shows the jitter density, with the dots ranging from small to large on account of how many tasks were completed on average. The combination of a greater number of average tasks completed, imposter kills, and a shorter game length would warrant a higher probability of a won game. The combination of fewer average tasks completed, a lesser number of imposter kills, and a longer game length would warrant a higher probability of a lost game.</p>
+                    <p>The longer that a game lasts while remaining in session essentially means that the number of crewmates is dwindling and the imposter or imposters, have not been ejected yet. The fewer crewmates actively playing means that there could be fewer tasks being completed, as well as fewer imposter kills. From the chart you can see that the largest sum of imposter kills comes during the early stages of the game, where task completion is high. This most likely due to the fact that during this time, there are the largest number of crewmates possible working to identify imposters, before the imposters have any chance to begin killing them off. Additionally, you can see that the number of imposter kills trails off as the game lingers on, again most likely due to the fact that there are fewer crewmates actively trying to eject imposters and are more strongly working towards completing their tasks so that they can win the game. What is interesting is that there seems to be a time in the game, around 840s or 14 minutes, where there is a decrease in imposter kills and an increase in average tasks completed. This makes sense because as the game goes on, the number of imposters should decrease, and the number of tasks completed should cumulatively add up in preparation for a victory.</p>
+                  </div>
+
+
+                </div>
                 <div class="card col-6 p-0">
                   <div class="card-header p-0 bg-primary text-center text-white">
                     <h1>Game Length and Task Completion vs. Wins/Losses</h1>
