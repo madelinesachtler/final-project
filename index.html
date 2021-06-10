@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset = "UTF-8"> 
+        <title>AUTHORIZATION REQUIRED</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+       <link rel = "stylesheet" type="text/css" href = "../CSS/access.css">
+       <link href="http://fonts.cdnfonts.com/css/among-us" rel="stylesheet">
+    </head>
+
+    <body>
+
+      <div id="wrapper">
+        <div id="reader" data-status="">
+          <div class="top">
+            <div class="screen">
+              <div id="message"></div>
+            </div>
+            <div class="lights">
+              <div class="light red"></div>
+              <div class="light green"></div>
+            </div>
+          </div>
+          <div id="card">
+            <div id="photo"></div>
+          </div>
+          <div class="bottom"></div>
+          <div id="hideaway"></div>
+        </div>
+      </div>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript"> 
+          const card = document.getElementById('card');
+          const reader = document.getElementById('reader');
+          let active = false;
+          let initialX;
+          let timeStart, timeEnd;
+          const soundAccepted = new Audio('https://thomaspark.co/projects/among-us-card-swipe/audio/CardAccepted.mp3');
+          const soundDenied = new Audio('https://thomaspark.co/projects/among-us-card-swipe/audio/CardDenied.mp3');
+
+          document.addEventListener('mousedown', dragStart);
+          document.addEventListener('mouseup', dragEnd);
+          document.addEventListener('mousemove', drag);
+          document.addEventListener('touchstart', dragStart);
+          document.addEventListener('touchend', dragEnd);
+          document.addEventListener('touchmove', drag);
+
+          function dragStart(e) {
+            if (e.target !== card) return;
+
+            if (e.type === 'touchstart') {
+              initialX = e.touches[0].clientX;
+            } else {
+              initialX = e.clientX;
+            }
+
+            timeStart = performance.now();
+            card.classList.remove('slide');
+            active = true;
+          }
+
+          function dragEnd(e) {
+            if (!active) return;
+
+            e.preventDefault();
+            let x;
+            let status;
+
+            if (e.type === 'touchend') {
+              x = e.touches[0].clientX - initialX;
+            } else {
+              x = e.clientX - initialX;
+            }
+
+            if (x < reader.offsetWidth) {
+              status = 'invalid';
+            }
+
+            timeEnd = performance.now();
+            card.classList.add('slide');
+            active = false;
+
+            setTranslate(0);
+            setStatus(status);
+          }
+
+          function drag(e) {
+            if (!active) return;
+
+            e.preventDefault();
+            let x;
+
+            if (e.type === 'touchmove') {
+              x = e.touches[0].clientX - initialX;
+            } else {
+              x = e.clientX - initialX;
+            }
+
+            setTranslate(x);
+          }
+
+          function setTranslate(x) {
+            if (x < 0) {
+              x = 0;
+            } else if (x > reader.offsetWidth) {
+              x = reader.offsetWidth;
+            }
+
+            x -= (card.offsetWidth / 2);
+
+            card.style.transform = 'translateX(' + x + 'px)';
+          }
+
+          function setStatus(status) {
+            if (typeof status === 'undefined') {
+              let duration = timeEnd - timeStart;
+
+              if (duration > 700) {
+                status = 'slow';
+              } else if (duration < 400) {
+                status = 'fast';
+              } else {
+                status = 'valid';
+              }
+            }
+
+            reader.dataset.status = status;
+            playAudio(status);
+          }
+
+          function playAudio(status) {
+            soundDenied.pause();
+            soundAccepted.pause();
+            soundDenied.currentTime = 0;
+            soundAccepted.currentTime = 0;
+
+            if (status === 'valid') {
+              soundAccepted.play();
+              setTimeout(function(){window.location.href = "HTML/landing.html"; }, 2000);
+            } else {
+              soundDenied.play();
+            }
+          }
+
+
+
+          Resources
+         </script>
+    </body>
+   
+    
+</html>

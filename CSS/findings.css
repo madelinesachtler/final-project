@@ -1,0 +1,74 @@
+.style {
+  background-image:url("../images/green.jpg");
+  background-size: 50%;
+  background-repeat:space;
+  opacity: 100%;
+  background-position: center;
+}
+
+.space {
+  background-image: url(../images/findings.jpg);
+  background-size: 90%;
+  background-repeat:unset;
+  opacity: 90%;
+  height: 1500px;
+  background-position: center;
+}
+
+nav {
+    background-color: rgb(255, 255, 255);
+  }
+
+  .style2 {
+    height: 1200px;
+  }
+  
+  p {
+    text-align: left;
+  }
+  
+  .container {
+    height: 200px;
+  }
+  
+
+
+  .card {
+    opacity: 80%;
+  }
+
+  style3 {
+    height: 2000px;
+  }
+
+  .rounding {
+    border-radius: 5px;
+  }
+
+  .container-fluid {
+    box-shadow: 10px 10px 10px rgb(7, 136, 2);
+  }
+
+  .goob {
+    font-family: 'Among Us', cursive;
+  }
+
+  .my-custom-scrollbar {
+    height: 600px;
+    overflow: auto;
+    overflow-x: scroll;
+  }
+
+  html {
+    overflow-y: scroll;
+  
+  }
+
+  .sizer {
+    max-height: 100px;
+    transform: rotate(125deg);
+  }
+  .sizer2 {
+    max-height: 125px;
+    transform: rotate(125deg);
+  }
